@@ -15,14 +15,6 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->integer('category_id')
-            ->unsigned()
-            ->nullable()
-            ->foreign()
-            ->references('id')
-            ->on('categories')
-            ->delete('restrict')
-            ->update('cascade');
             $table->integer('collection_id')
             ->unsigned()
             ->nullable()

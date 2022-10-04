@@ -46,5 +46,14 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
         Route::post('/register','CategoryController@register')->name('register');
         Route::post('/{categoryId}/update','CategoryController@update')->name('update');
         Route::get('/{categoryId}/delete','CategoryController@delete')->name('delete');
+        // category.collection routes
+        Route::name('collection.')
+        ->prefix('{categoryId}/collection')
+        ->group(function (){
+            Route::get('/','CollectionController@index')->name('index');
+            Route::post('/register','CollectionController@register')->name('register');
+            Route::post('/{collectionId}/update','CollectionController@update')->name('update');
+            Route::get('/{collectionId}/delete','CollectionController@delete')->name('delete');
+        });
     });
 });
