@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('address')->default('Behind Sarda Quarters, Sokoto');
+            $table->string('gender')->nullable();
             $table->rememberToken();
             $table->string('role')->default('customer');
             $table->foreignId('current_team_id')->nullable();

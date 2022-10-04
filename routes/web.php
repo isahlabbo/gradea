@@ -20,3 +20,13 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->group(function (){
+    Route::name('staff.')
+    ->prefix('/staff')
+    ->group(function (){
+        Route::get('/','StaffController@index')->name('index');
+        Route::post('/register','StaffController@register')->name('register');
+        Route::post('/{staffId}/update','StaffController@update')->name('update');
+        Route::get('/{staffId}/delete','StaffController@delete')->name('delete');
+    });
+});

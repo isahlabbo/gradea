@@ -56,12 +56,27 @@
                                     <li class="nav-item active">
                                     <a class="nav-link" href="{{route('dashboard')}}">Home</a>
                                     </li>
+                                    
+                                    @if(Auth::user()->role == 'Admin')
+                                        <li class="nav-item">
+                                        <a class="nav-link" href="{{route('staff.index')}}">Staff</a>
+                                        </li>
+                                        <li class="nav-item">
+                                        <a class="nav-link" href="#">Customers</a>
+                                        </li>
+                                        <li class="nav-item">
+                                        <a class="nav-link" href="#">Product</a>
+                                        </li>
+                                        <li class="nav-item">
+                                        <a class="nav-link" href="#">Order</a>
+                                        </li>
+                                    @endif
                                     <li class="nav-item">
-                                    <a class="nav-link" href="{{route('logout')}}" onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">Logout</a>
-                            <form id="logout-form" method="POST" action="{{ route('logout') }}">
-                                @csrf
-                            </form>
+                                        <a class="nav-link" href="{{route('logout')}}" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">Logout</a>
+                                        <form id="logout-form" method="POST" action="{{ route('logout') }}">
+                                            @csrf
+                                        </form>
                                     </li>
                                 </ul>
                            </div>

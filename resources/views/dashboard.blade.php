@@ -5,5 +5,9 @@
 @endsection
 
 @section('content')
-here
+@if(Auth::user()->role == 'Admin')
+{{Auth::user()->role}}
+@elseif(Auth::user()->role == 'customer')
+{{Auth::user()->role}}
+@endif
 @endsection
