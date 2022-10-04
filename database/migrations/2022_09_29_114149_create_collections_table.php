@@ -15,6 +15,14 @@ class CreateCollectionsTable extends Migration
     {
         Schema::create('collections', function (Blueprint $table) {
             $table->id();
+            $table->integer('category_id')
+            ->unsigned()
+            ->nullable()
+            ->foreign()
+            ->references('id')
+            ->on('categories')
+            ->delete('restrict')
+            ->update('cascade');
             $table->string('name');
             $table->timestamps();
         });

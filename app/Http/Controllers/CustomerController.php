@@ -6,11 +6,11 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
-class StaffController extends Controller
+class CustomerController extends Controller
 {
     public function index()
     {
-        return view('staff.index',['staffs'=>User::where('role','staff')->get()]);
+        return view('customer.index',['customers'=>User::where('role','customer')->get()]);
     }
 
     public function register(Request $data)
@@ -29,12 +29,12 @@ class StaffController extends Controller
             'email'=>$data->email,
             'password'=>Hash::make($data->password),
             'address'=>$data->address,
-            'role'=>'staff',
+            'role'=>'customer',
             ]); 
-        return redirect()->route('staff.index')->withSuccess('Staff Created');       
+        return redirect()->route('customer.index')->withSuccess('Customer Created');       
     }
 
-    public function update(Request $data, $staffId)
+    public function update(Request $data, $customerId)
     {
         $data->validate([
             'name'=>'required|string',
@@ -42,22 +42,22 @@ class StaffController extends Controller
             'email'=>'required',
             'address'=>'required',
             ]);
-        $staff = User::find($staffId);
-        $staff->update([
+        $customer = User::find($customerId);
+        $customer->update([
             'name'=>$data->name,
             'gender'=>$data->gender,
             'email'=>$data->email,
             'address'=>$data->address,
             ]);
             if($data->password){
-                $staff->update(['password'=>Hash::make($data->password)]);
+                $customer->update(['password'=>Hash::make($data->password)]);
             } 
-        return redirect()->route('staff.index')->withSuccess('Staff Updated');  
+        return redirect()->route('customer.index')->withSuccess('Customer Updated');  
     }
 
-    public function delete($staffId)
+    public function delete($customerId)
     {
-        User::find($staffId)->delete();
-        return redirect()->route('staff.index')->withSuccess('Staff Deleted');
+        User::find($customerId)->delete();
+        return redirect()->route('customer.index')->withSuccess('Customer Deleted');
     }
 }

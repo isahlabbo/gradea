@@ -29,4 +29,22 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
         Route::post('/{staffId}/update','StaffController@update')->name('update');
         Route::get('/{staffId}/delete','StaffController@delete')->name('delete');
     });
+
+    Route::name('customer.')
+    ->prefix('/customer')
+    ->group(function (){
+        Route::get('/','CustomerController@index')->name('index');
+        Route::post('/register','CustomerController@register')->name('register');
+        Route::post('/{customerId}/update','CustomerController@update')->name('update');
+        Route::get('/{customerId}/delete','CustomerController@delete')->name('delete');
+    });
+
+    Route::name('category.')
+    ->prefix('/category')
+    ->group(function (){
+        Route::get('/','CategoryController@index')->name('index');
+        Route::post('/register','CategoryController@register')->name('register');
+        Route::post('/{categoryId}/update','CategoryController@update')->name('update');
+        Route::get('/{categoryId}/delete','CategoryController@delete')->name('delete');
+    });
 });

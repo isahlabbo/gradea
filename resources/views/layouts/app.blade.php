@@ -62,10 +62,10 @@
                                         <a class="nav-link" href="{{route('staff.index')}}">Staff</a>
                                         </li>
                                         <li class="nav-item">
-                                        <a class="nav-link" href="#">Customers</a>
+                                        <a class="nav-link" href="{{route('customer.index')}}">Customers</a>
                                         </li>
                                         <li class="nav-item">
-                                        <a class="nav-link" href="#">Product</a>
+                                        <a class="nav-link" href="{{route('category.index')}}">Categories</a>
                                         </li>
                                         <li class="nav-item">
                                         <a class="nav-link" href="#">Order</a>
@@ -93,6 +93,7 @@
       <!-- banner -->
       <section class="banner_main">
         <div class="container">
+            @include('sweetalert::alert')
             @yield('content')
         </div>
       </section>

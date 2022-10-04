@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends BaseModel
 {
-    public function products()
+    public function collections()
     {
-        return $this->hasMany(Product::class);
+        return $this->hasMany(Collection::class);
     }
 }
