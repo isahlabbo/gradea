@@ -15,13 +15,14 @@ class StaffController extends Controller
 
     public function register(Request $data)
     {
+        
         $data->validate([
             'name'=>'required|string',
             'gender'=>'required',
             'email'=>'required|email|unique:users',
             'password'=>'required',
             'address'=>'required',
-            ]);
+        ]);
         User::create([
             'name'=>$data->name,
             'gender'=>$data->gender,

@@ -6,8 +6,11 @@
 
 @section('content')
 @if(Auth::user()->role == 'Admin')
-{{Auth::user()->role}}
+    {{Auth::user()->role}}
 @elseif(Auth::user()->role == 'customer')
-{{Auth::user()->role}}
+    {{Auth::user()->role}}
+@elseif(Auth::user()->role == 'staff')
+    {{Auth::user()->role}}
 @endif
+
 @endsection
