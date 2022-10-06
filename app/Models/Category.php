@@ -11,4 +11,13 @@ class Category extends BaseModel
     {
         return $this->hasMany(Collection::class);
     }
+
+    public function products()
+    {
+        $counts = 0;
+        foreach ($this->collections as $collection) {
+            $counts += count($collection->products);
+        }
+        return $counts;
+    }
 }

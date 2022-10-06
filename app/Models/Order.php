@@ -21,4 +21,9 @@ class Order extends BaseModel
     {
         return $this->belongsTo(PaymentMethod::class);
     }
+
+    public function orderItems()
+    {
+        return $this->hasMany(OrderItem::class);
+    }
 }

@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Category;
+use App\Models\Coupon;
 use App\Models\Gender;
 use App\Models\Delivery;
 use App\Models\PaymentMethod;
@@ -40,6 +41,10 @@ class DatabaseSeeder extends Seeder
 
         foreach(['Bring it to my house', 'I will come and collect', 'i will send some one to collect for me'] as $delivery){
             Delivery::firstOrCreate(['name'=>$delivery]);
+        }
+
+        for ($i=1; $i <= 100 ; $i++) { 
+            Coupon::firstOrCreate(['code'=>substr(Hash::make($i),7),'percentage'=>$i]);
         }
 
     }

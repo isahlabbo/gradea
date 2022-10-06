@@ -23,6 +23,14 @@ class CreateCustomersTable extends Migration
             ->on('coupons')
             ->delete('restrict')
             ->update('cascade');
+            $table->integer('user_id')
+            ->unsigned()
+            ->nullable()
+            ->foreign()
+            ->references('id')
+            ->on('users')
+            ->delete('restrict')
+            ->update('cascade');
             $table->integer('gender_id')
             ->unsigned()
             ->nullable()

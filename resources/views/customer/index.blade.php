@@ -9,6 +9,7 @@
                 <th>S/N</th>
                 <th>NAME</th>
                 <th>GENDER</th>
+                <th>COUPON</th>
                 <th>ADDRESS</th>
                 <th>PASSWORD</th>
                 <th>EMAIL</th>
@@ -22,8 +23,8 @@
                     <td>{{$loop->iteration}}</td>
                     <td>{{$customer->name}}</td>
                     <td>{{$customer->gender}}</a></td>
-                    <td>{{$customer->address}}</a></td>
-                    <td>{{$customer->real_password}}</a></td>
+                    <td>{{$customer->customer->coupon->code}}</a></td>
+                    <td>{{$customer->customer->address}}</a></td>
                     <td>{{$customer->email}}</a></td>
                     <td>
                         <button class="btn btn-warning" data-toggle="modal" data-target="#edit_{{$customer->id}}">Edit</button>

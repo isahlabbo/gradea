@@ -23,14 +23,15 @@ class CustomerController extends Controller
             'password'=>'required',
             'address'=>'required',
         ]);
-        User::create([
+        $user = User::create([
             'name'=>$data->name,
             'gender'=>$data->gender,
             'email'=>$data->email,
             'password'=>Hash::make($data->password),
             'address'=>$data->address,
             'role'=>'customer',
-            ]); 
+            ]);
+        $user->customer()->firstOrCreate(['coupon_id'=>$data->coupon,'address'=>$data->address]);     
         return redirect()->route('customer.index')->withSuccess('Customer Created');       
     }
 
