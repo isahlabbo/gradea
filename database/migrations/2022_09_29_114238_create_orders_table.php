@@ -40,6 +40,7 @@ class CreateOrdersTable extends Migration
             ->delete('restrict')
             ->update('cascade');
             $table->string('amount');
+            $table->string('date')->nullable();
             $table->timestamps();
         });
     }

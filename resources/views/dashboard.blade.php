@@ -12,9 +12,10 @@
             <th>NAME</th>
             <th>PHONE</th>
             <th>ADDRESS</th>
-            <th>AMOUNT</th>
+            <th>AMOUNT (#)</th>
             <th>PAYMENT METHOD</th>
             <th>DELIVERY METHOD</th>
+            <th>DATE</th>
         </thead>
         <tbody>
         @foreach(App\Models\Order::all() as $order)
@@ -24,8 +25,9 @@
                 <td>{{$order->customer->phone}}</td>
                 <td>{{$order->customer->address}}</td>
                 <td>{{$order->amount}}</td>
-                <td>{{$oreder->paymentMethod->name ?? ''}}</td>
+                <td>{{$order->paymentMethod->name ?? ''}}</td>
                 <td>{{$order->delivery->name ?? ''}}</td>
+                <td></td>
             </tr>
         @endforeach
         </tbody>
@@ -37,7 +39,7 @@
                 <div class="card-body shadow m-2">
                     <h3>Order Notice</h3>
                     <p>We are pleased to notify you that, we have seen your order of <b># {{$order->amount}}</b> naira products at <b>{{$order->created_at}}</b> but, the delivery and payment methods were not update please click the button bellow to do that. Additionally you can update this order to add more or remove items from it or you can make another oreder. Best regard</p>
-                    <p><a href="">Modify the order</a></p>
+                    <p><a href="{{route('customer.order.item.index',[Auth::user()->customer->id,$order->id])}}">Modify the order</a></p>
                     <p><a href="">Add Payment and Delivery Methods</a></p>
                 </div>
             </div>

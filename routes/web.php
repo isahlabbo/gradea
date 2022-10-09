@@ -37,6 +37,14 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
         ->prefix('{customerId}/order')
         ->group(function (){
             Route::post('/register','OrderController@register')->name('register');
+            Route::post('/{orderId}/update','OrderController@update')->name('update');
+            // customer.order.item
+            Route::name('item.')
+            ->prefix('{orderId}/item')
+            ->group(function (){
+                Route::get('/','OrderItemController@index')->name('index');
+                Route::post('/{itemId}/update','OrderItemController@update')->name('update');
+            });
         });
 
         Route::get('/','CustomerController@index')->name('index');

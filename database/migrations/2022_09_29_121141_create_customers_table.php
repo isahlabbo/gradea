@@ -40,6 +40,7 @@ class CreateCustomersTable extends Migration
             ->delete('restrict')
             ->update('cascade');
             $table->string('address');
+            $table->string('phone');
             $table->timestamps();
         });
     }
