@@ -34,16 +34,18 @@
     </table>
 @elseif(Auth::user()->role == 'customer')
     <div class="row">
-        @foreach(Auth::user()->customer->orders as $order)
-            <div class="col-md-12">
-                <div class="card-body shadow m-2">
-                    <h3>Order Notice</h3>
-                    <p>We are pleased to notify you that, we have seen your order of <b># {{$order->amount}}</b> naira products at <b>{{$order->created_at}}</b> but, the delivery and payment methods were not update please click the button bellow to do that. Additionally you can update this order to add more or remove items from it or you can make another oreder. Best regard</p>
-                    <p><a href="{{route('customer.order.item.index',[Auth::user()->customer->id,$order->id])}}">Modify the order</a></p>
-                    <p><a href="">Add Payment and Delivery Methods</a></p>
+        @if(Auth::user()->customer)
+            @foreach(Auth::user()->customer->orders as $order)
+                <div class="col-md-12">
+                    <div class="card-body shadow m-2">
+                        <h3>Order Notice</h3>
+                        <p>We are pleased to notify you that, we have seen your order of <b># {{$order->amount}}</b> naira products at <b>{{$order->created_at}}</b> but, the delivery and payment methods were not update please click the button bellow to do that. Additionally you can update this order to add more or remove items from it or you can make another oreder. Best regard</p>
+                        <p><a href="{{route('customer.order.item.index',[Auth::user()->customer->id,$order->id])}}">Modify the order</a></p>
+                        <p><a href="">Add Payment and Delivery Methods</a></p>
+                    </div>
                 </div>
-            </div>
-        @endforeach
+            @endforeach
+        @endif
     </div>
     <div class="row">
     <div class="col-md-3"></div>
@@ -56,7 +58,8 @@
         <div class="row input-group">
             @foreach(App\Models\Category::all() as $category)
                 <div class="col-md-6">
-                    <span>{{$category->name}}</span> <span><input type="checkbox" name="{{$category->id}}" class="form-control"></span>
+                    <span>{{$category->name}}</span> <span>
+                    <input type="checkbox" name="{{$category->id}}"></span>
                     <hr>
                 </div>
             @endforeach
