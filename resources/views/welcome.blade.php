@@ -12,7 +12,7 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>Zezmon</title>
+  <title>{{config('app.name')}} | Welcome</title>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -90,14 +90,11 @@
                       <div class="slider_item-detail">
                         <div>
                           <h2 class="slider_heading">
-                            50% OFF <br />
-                            First order
+                            Grade A <br />
+                            Collection
                           </h2>
                           <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore
-                            et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nis
+                            
                           </p>
                           <div class="d-flex">
                             <a href="" class="slider_btn">
@@ -130,10 +127,7 @@
                             First order
                           </h2>
                           <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore
-                            et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nis
+                            
                           </p>
                           <div class="d-flex">
                             <a href="" class="slider_btn">
@@ -162,14 +156,11 @@
                       <div class="slider_item-detail">
                         <div>
                           <h2 class="slider_heading">
-                            50% OFF <br />
-                            First order
+                            we have <br />
+                            Smilling Price
                           </h2>
                           <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore
-                            et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nis
+                            
                           </p>
                           <div class="d-flex">
                             <a href="" class="slider_btn">
@@ -253,16 +244,7 @@
                 </div>
               </a>
             </div>
-            <div class="detail-box d-box-2">
-              <a href="">
-                <div class="detail-content">
-                  <img src="images/d-4.png" alt="" />
-                  <h5>
-                    blows
-                  </h5>
-                </div>
-              </a>
-            </div>
+            
           </div>
         </div>
       </div>
@@ -282,284 +264,33 @@
     </div>
     <div class="container layout_padding">
       <div class="product_container">
-        <a href="">
-          <div class="product_box">
-            <div class="product_img-box">
-              <img src="images/p1.png" alt="" />
-              <span>
-                Sale
-              </span>
+        @foreach(App\Models\Collection::all() as $collection)
+          @foreach($collection->products as $product)
+          <a href="">
+            <div class="product_box">
+              <div class="product_img-box">
+                <img src="{{$product->picture()}}" alt="" />
+                <span>
+                  {{$product->quantity}} Available
+                </span>
+              </div>
+              <div class="product_detail-box">
+                <span>
+                  <b># {{$product->price}}</b>
+                </span>
+                <p>
+                  {{$product->description}}
+                </p>
+              </div>
             </div>
-            <div class="product_detail-box">
-              <span>
-                $120.00
-              </span>
-              <p>
-                Passage of Lorem Ipsum, you
-              </p>
-            </div>
-          </div>
-        </a>
-        <a href="">
-          <div class="product_box">
-            <div class="product_img-box">
-              <img src="images/p2.png" alt="" />
-              <span>
-                Sale
-              </span>
-            </div>
-            <div class="product_detail-box">
-              <span>
-                $110.00
-              </span>
-              <p>
-                Passage of Lorem Ipsum, you
-              </p>
-            </div>
-          </div>
-        </a>
-        <a href="">
-          <div class="product_box">
-            <div class="product_img-box">
-              <img src="images/p3.png" alt="" />
-              <span>
-                Sale
-              </span>
-            </div>
-            <div class="product_detail-box">
-              <span>
-                $150.00
-              </span>
-              <p>
-                Passage of Lorem Ipsum, you
-              </p>
-            </div>
-          </div>
-        </a>
-        <a href="">
-          <div class="product_box">
-            <div class="product_img-box">
-              <img src="images/p4.png" alt="" />
-              <span>
-                Sale
-              </span>
-            </div>
-            <div class="product_detail-box">
-              <span>
-                $150.00
-              </span>
-              <p>
-                Passage of Lorem Ipsum, you
-              </p>
-            </div>
-          </div>
-        </a>
-        <a href="">
-          <div class="product_box">
-            <div class="product_img-box">
-              <img src="images/p5.png" alt="" />
-              <span>
-                Sale
-              </span>
-            </div>
-            <div class="product_detail-box">
-              <span>
-                $150.00
-              </span>
-              <p>
-                Passage of Lorem Ipsum, you
-              </p>
-            </div>
-          </div>
-        </a>
-        <a href="">
-          <div class="product_box">
-            <div class="product_img-box">
-              <img src="images/p6.png" alt="" />
-              <span>
-                Sale
-              </span>
-            </div>
-            <div class="product_detail-box">
-              <span>
-                $150.00
-              </span>
-              <p>
-                Passage of Lorem Ipsum, you
-              </p>
-            </div>
-          </div>
-        </a>
-        <a href="">
-          <div class="product_box">
-            <div class="product_img-box">
-              <img src="images/p7.png" alt="" />
-              <span>
-                Sale
-              </span>
-            </div>
-            <div class="product_detail-box">
-              <span>
-                $150.00
-              </span>
-              <p>
-                Passage of Lorem Ipsum, you
-              </p>
-            </div>
-          </div>
-        </a>
-        <a href="">
-          <div class="product_box">
-            <div class="product_img-box">
-              <img src="images/p8.png" alt="" />
-              <span>
-                Sale
-              </span>
-            </div>
-            <div class="product_detail-box">
-              <span>
-                $150.00
-              </span>
-              <p>
-                Passage of Lorem Ipsum, you
-              </p>
-            </div>
-          </div>
-        </a>
-        <a href="">
-          <div class="product_box">
-            <div class="product_img-box">
-              <img src="images/p9.png" alt="" />
-              <span>
-                Sale
-              </span>
-            </div>
-            <div class="product_detail-box">
-              <span>
-                $150.00
-              </span>
-              <p>
-                Passage of Lorem Ipsum, you
-              </p>
-            </div>
-          </div>
-        </a>
-        <a href="">
-          <div class="product_box">
-            <div class="product_img-box">
-              <img src="images/p10.png" alt="" />
-              <span>
-                Sale
-              </span>
-            </div>
-            <div class="product_detail-box">
-              <span>
-                $150.00
-              </span>
-              <p>
-                Passage of Lorem Ipsum, you
-              </p>
-            </div>
-          </div>
-        </a>
-        <a href="">
-          <div class="product_box">
-            <div class="product_img-box">
-              <img src="images/p11.png" alt="" />
-              <span>
-                Sale
-              </span>
-            </div>
-            <div class="product_detail-box">
-              <span>
-                $150.00
-              </span>
-              <p>
-                Passage of Lorem Ipsum, you
-              </p>
-            </div>
-          </div>
-        </a>
-        <a href="">
-          <div class="product_box">
-            <div class="product_img-box">
-              <img src="images/p12.png" alt="" />
-              <span>
-                Sale
-              </span>
-            </div>
-            <div class="product_detail-box">
-              <span>
-                $150.00
-              </span>
-              <p>
-                Passage of Lorem Ipsum, you
-              </p>
-            </div>
-          </div>
-        </a>
+          </a>
+          @endforeach
+        @endforeach
       </div>
     </div>
   </section>
 
-  <!-- end products section -->
-
-  <!-- find section -->
-  <section class="find_section layout_padding-bottom">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-6 col-md-8 offset-md-2">
-          <div class="find_container">
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="find_container-img">
-                  <img src="images/find-img.png" alt="" />
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <h3>
-                  Find Everything <br />
-                  From A to Z
-                </h3>
-                <p>
-                  Shop Back to school
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="shop_container">
-            <div class="row">
-              <div class="col-sm-6">
-                <p>
-                  Shoes
-                </p>
-                <h3>
-                  Shop by catagories
-                </h3>
-                <div>
-                  <a href="">
-                    View More
-                  </a>
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="shoe_img-box">
-                  <img src="images/shoes.png" alt="" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="find_img-box">
-            <img src="images/find-hero.png" alt="" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- end find section -->
+ 
   <!-- client section -->
   <section class="client_section layout_padding">
     <div class="container">
@@ -570,115 +301,7 @@
         <div class="carousel-inner">
           <div class="carousel-item active">
             <div class="row layout_padding2">
-              <div class="col-md-6">
-                <div class="client_box">
-                  <div class="client_id-box">
-                    <div class="client_img-box">
-                      <img src="images/client.png" alt="" />
-                    </div>
-                    <h4>Carlac liyo</h4>
-                  </div>
-                  <div class="client_detail">
-                    <p>
-                      There are many variations of passages of Lorem Ipsum
-                      available, but the majority have suffered alteration in some
-                      form, by injected humour, or randomised words which don't look
-                      even slightly believable. If you are going to use a passage of
-                      Lorem Ipsum, you need to be sure there isn't anything
-                      embarrassing hidden in the middle of text.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="client_box">
-                  <div class="client_id-box">
-                    <div class="client_img-box">
-                      <img src="images/client.png" alt="" />
-                    </div>
-                    <h4>Carlac liyo</h4>
-                  </div>
-                  <div class="client_detail">
-                    <p>
-                      There are many variations of passages of Lorem Ipsum
-                      available, but the majority have suffered alteration in some
-                      form, by injected humour, or randomised words which don't look
-                      even slightly believable. If you are going to use a passage of
-                      Lorem Ipsum, you need to be sure there isn't anything
-                      embarrassing hidden in the middle of text.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="row layout_padding2">
-              <div class="col-md-6">
-                <div class="client_box">
-                  <div class="client_id-box">
-                    <div class="client_img-box">
-                      <img src="images/client.png" alt="" />
-                    </div>
-                    <h4>Carlac liyo</h4>
-                  </div>
-                  <div class="client_detail">
-                    <p>
-                      There are many variations of passages of Lorem Ipsum
-                      available, but the majority have suffered alteration in some
-                      form, by injected humour, or randomised words which don't look
-                      even slightly believable. If you are going to use a passage of
-                      Lorem Ipsum, you need to be sure there isn't anything
-                      embarrassing hidden in the middle of text.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="client_box">
-                  <div class="client_id-box">
-                    <div class="client_img-box">
-                      <img src="images/client.png" alt="" />
-                    </div>
-                    <h4>Carlac liyo</h4>
-                  </div>
-                  <div class="client_detail">
-                    <p>
-                      There are many variations of passages of Lorem Ipsum
-                      available, but the majority have suffered alteration in some
-                      form, by injected humour, or randomised words which don't look
-                      even slightly believable. If you are going to use a passage of
-                      Lorem Ipsum, you need to be sure there isn't anything
-                      embarrassing hidden in the middle of text.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="row layout_padding2">
-              <div class="col-md-6">
-                <div class="client_box">
-                  <div class="client_id-box">
-                    <div class="client_img-box">
-                      <img src="images/client.png" alt="" />
-                    </div>
-                    <h4>Carlac liyo</h4>
-                  </div>
-                  <div class="client_detail">
-                    <p>
-                      There are many variations of passages of Lorem Ipsum
-                      available, but the majority have suffered alteration in some
-                      form, by injected humour, or randomised words which don't look
-                      even slightly believable. If you are going to use a passage of
-                      Lorem Ipsum, you need to be sure there isn't anything
-                      embarrassing hidden in the middle of text.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
+              <div class="col-md-12">
                 <div class="client_box">
                   <div class="client_id-box">
                     <div class="client_img-box">
@@ -711,31 +334,6 @@
         </a>
       </div>
 
-    </div>
-    <div class="container">
-      <div class="item_container">
-        <div class="row">
-          <div class="col-sm-7">
-            <h3>
-              Best offers on any makeup items
-            </h3>
-            <p>
-              Contrary to popular belief, Lorem Ipsum is not simply random
-              text. It has roots in a piece of classical
-            </p>
-            <div>
-              <a href="">
-                Shop Now
-              </a>
-            </div>
-          </div>
-          <div class="col-sm-5">
-            <div class="item_img-box">
-              <img src="images/items.png" alt="" />
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
   <!-- end client section -->
@@ -921,48 +519,7 @@
         </div>
       </div>
     </div>
-    <div class="container">
-      <div class="follow_container">
-        <div class="row">
-          <div class="col-md-9">
-            <div class="app_container">
-              <h3>
-                DOWNLOAD OUR APPS
-
-              </h3>
-              <div>
-                <img src="images/google-play.png" alt="">
-                <img src="images/apple-store.png" alt="">
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3 ">
-            <div class="info_social">
-              <div>
-                <a href="">
-                  <img src="images/fb.png" alt="">
-                </a>
-              </div>
-              <div>
-                <a href="">
-                  <img src="images/twitter.png" alt="">
-                </a>
-              </div>
-              <div>
-                <a href="">
-                  <img src="images/linkedin.png" alt="">
-                </a>
-              </div>
-              <div>
-                <a href="">
-                  <img src="images/instagram.png" alt="">
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    
   </section>
 
   <!-- end info section -->
@@ -970,8 +527,8 @@
   <!-- footer section -->
   <section class="container-fluid footer_section">
     <p>
-      Copyright &copy; 2019 All Rights Reserved By
-      <a href="https://html.design/">Free Html Templates</a>
+      Copyright &copy; {{date('Y')}}-{{config('app.name')}} All Rights Reserved By
+      
     </p>
   </section>
   <!-- footer section -->

@@ -12,17 +12,17 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>Zezmon</title>
+  <title>{{config('app.name')}} | @yield('title')</title>
 
   <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.css')}}" />
 
   <!-- fonts style -->
   <link href="https://fonts.googleapis.com/css?family=Dosis:400,500|Poppins:400,700&display=swap" rel="stylesheet" />
   <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet" />
+  <link href="{{asset('css/style.css')}}" rel="stylesheet" />
   <!-- responsive style -->
-  <link href="css/responsive.css" rel="stylesheet" />
+  <link href="{{asset('css/responsive.css')}}" rel="stylesheet" />
 </head>
 
 <body>
@@ -44,25 +44,25 @@
                   
                   <div class=" d-none d-lg-flex">
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{route('dashboard')}}">Home</a>
+                        <a class="nav-link" href="{{route('dashboard')}}"><b>Home</b></a>
                     </li>
                     @if(Auth::user()->role == 'Admin')
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('staff.index')}}">Staff</a>
+                            <a class="nav-link" href="{{route('staff.index')}}"><b>Staff</b></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('customer.index')}}">Customers</a>
+                            <a class="nav-link" href="{{route('customer.index')}}"><b>Customers</b></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('category.index')}}">Categories</a>
+                            <a class="nav-link" href="{{route('category.index')}}"><b>Categories</b></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Order</a>
+                            <a class="nav-link" href="#"><b>Order</a>
                         </li>
                     @endif
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('logout')}}" onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();">Logout</a>
+                        document.getElementById('logout-form').submit();"><b>Logout</b></a>
                         <form id="logout-form" method="POST" action="{{ route('logout') }}">
                             @csrf
                         </form>
@@ -106,8 +106,8 @@
     </div>
   
 
-  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <script type="text/javascript" src="{{asset('js/jquery-3.4.1.min.js')}}"></script>
+  <script type="text/javascript" src="{{asset('js/bootstrap.js')}}"></script>
 
   <script>
     function openNav() {

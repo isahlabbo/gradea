@@ -6,7 +6,10 @@
 
 @section('content')
 @if(Auth::user()->role == 'Admin')
-    <table class="table">
+<div class="row">
+<div class="col-md-2"></div>
+<div class="col-md-8">
+    <table class="table table-responsive table-striped">
         <thead>
             <th>S/N</th>
             <th>NAME</th>
@@ -32,6 +35,8 @@
         @endforeach
         </tbody>
     </table>
+</div>
+</div>
 @elseif(Auth::user()->role == 'customer')
     <div class="row">
         @if(Auth::user()->customer)

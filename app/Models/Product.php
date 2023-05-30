@@ -12,6 +12,11 @@ class Product extends BaseModel
     {
         return $this->belongsTo(Collection::class);
     }
+
+    public function orderItems()
+    {
+        return $this->hasMany(OrderItem::class);
+    }
     
     public function picture()
     {

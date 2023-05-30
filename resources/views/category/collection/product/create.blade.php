@@ -10,19 +10,12 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form enctype="multipart/form-data" action="{{route('product.register')}}" method="post">
+                <form enctype="multipart/form-data" action="{{route('category.collection.product.register',[$category->id, $collection->id])}}" method="post">
                     @csrf
-                    <div class="form-group">
-                        <select name="collection" class="input-group form-control">
-                        <option value="">Collection</option>
-                        @foreach($category->collections as $collection)
-                           <option value="{{$collection->id}}">{{$collection->name}}</option>
-                        @endforeach
-                        </select>
-                    </div>
+                    <input type="hidden" name="collection" value="{{$collection->id}}">
                     <div class="form-group row">
-                        <div class="col-sm-4"><label for="">Product Image</label></div>
-                        <div class="col-sm-8">
+                        <div class="col-sm-6"><label for="">{{$category->name}} Image</label></div>
+                        <div class="col-sm-6">
                             <input type="file" class="input-group form-control" placeholder="TITLE" value="{{old('image')}}" name="image">
                         </div>
                     </div>
@@ -38,7 +31,7 @@
                     </div>
                     
                     <div class="form-group">
-                        <input type="number" class="input-group form-control" placeholder="PRICE" value="{{old('price')}}" name="price">
+                        <input type="number" inputmode="numeric" class="input-group form-control" placeholder="PRICE" value="{{old('price')}}" name="price">
                     </div>
                     
                     <button class="btn btn-primary">REGISTER</button>

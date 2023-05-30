@@ -55,16 +55,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
 
     
 
-    Route::name('product.')
-    ->prefix('/product')
-    ->group(function (){
-        Route::get('/category/{categoryId}','ProductController@index')->name('index');
-        Route::post('/register','ProductController@register')->name('register');
-        Route::post('/{productId}/update','ProductController@update')->name('update');
-        Route::get('/{productId}/delete','ProductController@delete')->name('delete');
-
-        Route::post('/','ProductController@search')->name('search');
-    });
+    
 
     Route::name('category.')
     ->prefix('/category')
@@ -81,6 +72,19 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
             Route::post('/register','CollectionController@register')->name('register');
             Route::post('/{collectionId}/update','CollectionController@update')->name('update');
             Route::get('/{collectionId}/delete','CollectionController@delete')->name('delete');
+        
+            Route::name('product.')
+            ->prefix('/product')
+            ->group(function (){
+                Route::get('/{collectionId}','ProductController@index')->name('index');
+                Route::post('/register','ProductController@register')->name('register');
+                Route::post('/{productId}/update','ProductController@update')->name('update');
+                Route::get('/{productId}/delete','ProductController@delete')->name('delete');
+    
+                Route::post('/','ProductController@search')->name('search');
+            });
         });
+
+        
     });
 });
